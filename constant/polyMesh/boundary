@@ -14,51 +14,51 @@ FoamFile
 
 8
 (
-    inlet
+	inlet
 	{
 	type		patch;
 	nFaces		48;
 	startFace	162382;
 	}
-    wall
+	wall
 	{
 	type		wall;
 	nFaces		3708;
 	startFace	162430;
 	}
-    outlet
+	outlet
 	{
 	type		patch;
 	nFaces		522;
 	startFace	166138;
 	}
-    x_sym
+	x_sym
 	{
-	type		symmetry;
+	type		patch;
 	nFaces		746;
 	startFace	166660;
 	}
-    flux
+	flux
 	{
 	type		patch;
 	nFaces		120;
 	startFace	167406;
 	}
-    defaultPatches
+	defaultPatches
 	{
 	type		patch;
 	nFaces		1734;
 	startFace	167526;
 	}
-    z_sym_1
+	z_sym_1
 	{
-	type		symmetry;
+	type		patch;
 	nFaces		3031;
 	startFace	169260;
 	}
-    z_sym_2
+	z_sym_2
 	{
-	type		symmetry;
+	type		patch;
 	nFaces		2875;
 	startFace	172291;
 	}
