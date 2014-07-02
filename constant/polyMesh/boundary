@@ -12,51 +12,45 @@ FoamFile
 	object		boundary;
 }
 
-8
+7
 (
-inlet
+    inlet
 	{
 	type		patch;
 	nFaces		48;
 	startFace	159092;
 	}
-wall
+    wall
 	{
 	type		wall;
 	nFaces		3708;
 	startFace	159140;
 	}
-outlet
+    outlet
 	{
 	type		patch;
 	nFaces		522;
 	startFace	162848;
 	}
-z_sym
+    z_sym
 	{
 	type		patch;
 	nFaces		5906;
 	startFace	163370;
 	}
-x_sym
+    x_sym
 	{
 	type		patch;
 	nFaces		746;
 	startFace	169276;
 	}
-flux
+    flux
 	{
 	type		patch;
 	nFaces		120;
 	startFace	170022;
 	}
-rail_to_air
-	{
-	type		patch;
-	nFaces		6580;
-	startFace	170142;
-	}
-defaultPatches
+    defaultPatches
 	{
 	type		patch;
 	nFaces		1734;
