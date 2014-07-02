@@ -18,42 +18,42 @@ FoamFile
 	{
 	type		patch;
 	nFaces		48;
-	startFace	159092;
+	startFace	162382;
 	}
     wall
 	{
 	type		wall;
 	nFaces		3708;
-	startFace	159140;
+	startFace	162430;
 	}
     outlet
 	{
 	type		patch;
 	nFaces		522;
-	startFace	162848;
+	startFace	166138;
 	}
     z_sym
 	{
 	type		patch;
 	nFaces		5906;
-	startFace	163370;
+	startFace	166660;
 	}
     x_sym
 	{
 	type		patch;
 	nFaces		746;
-	startFace	169276;
+	startFace	172566;
 	}
     flux
 	{
 	type		patch;
 	nFaces		120;
-	startFace	170022;
+	startFace	173312;
 	}
     defaultPatches
 	{
 	type		patch;
 	nFaces		1734;
-	startFace	176722;
+	startFace	173432;
 	}
 )
