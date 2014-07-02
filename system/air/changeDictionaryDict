@@ -38,6 +38,14 @@ dictionaryReplacement
                 inletValue      uniform ( 0 0 0 );
                 value           uniform ( 0.1 0 0 );
             }
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+            z_sym
+            {
+                type            symmetryPlane;
+            }
         }
     }
 
@@ -72,6 +80,14 @@ dictionaryReplacement
                 kappaName       none;
                 value           uniform 300;
             }
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+            z_sym
+            {
+                type            symmetryPlane;
+            }
         }
     }
 
@@ -97,6 +113,14 @@ dictionaryReplacement
                 type            inletOutlet;
                 inletValue      uniform 0.01;
                 value           uniform 0.01;
+            }
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+            z_sym
+            {
+                type            symmetryPlane;
             }
         }
     }
@@ -124,6 +148,14 @@ dictionaryReplacement
                 inletValue      uniform 0.1;
                 value           uniform 0.1;
             }
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+            z_sym
+            {
+                type            symmetryPlane;
+            }
         }
     }
 
@@ -144,6 +176,14 @@ dictionaryReplacement
                 type            fixedValue;
                 value           uniform 1e5;
             }
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+            z_sym
+            {
+                type            symmetryPlane;
+            }
         }
     }
 
@@ -163,6 +203,14 @@ dictionaryReplacement
             {
                 type            calculated;
                 value           uniform 1e5;
+            }
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+            z_sym
+            {
+                type            symmetryPlane;
             }
         }
     }

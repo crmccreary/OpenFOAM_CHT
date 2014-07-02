@@ -34,13 +34,13 @@ FoamFile
 	}
     z_sym
 	{
-	type		patch;
+	type		symmetryPlane;
 	nFaces		5906;
 	startFace	166660;
 	}
     x_sym
 	{
-	type		patch;
+	type		symmetryPlane;
 	nFaces		746;
 	startFace	172566;
 	}
