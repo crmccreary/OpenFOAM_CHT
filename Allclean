@@ -5,6 +5,11 @@ cd ${0%/*} || exit 1    # run from this directory
 . $WM_PROJECT_DIR/bin/tools/CleanFunctions
 
 cleanCase
+cp constant/polyMesh/.cellZones constant/polyMesh/cellZones
+cp constant/polyMesh/.faces constant/polyMesh/faces
+cp constant/polyMesh/.neighbour constant/polyMesh/neighbour
+cp constant/polyMesh/.owner constant/polyMesh/owner
+cp constant/polyMesh/.points constant/polyMesh/points
 rm -rf VTK
 rm -rf constant/cellToRegion constant/polyMesh/sets
 rm -rf 0/air
