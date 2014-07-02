@@ -27,12 +27,12 @@ dictionaryReplacement
                 type            fixedValue;
                 value           uniform (0 0 0);
             }
-            minX
+            inlet
             {
                 type            fixedValue;
                 value           uniform ( 0.1 0 0 );
             }
-            maxX
+            outlet
             {
                 type            inletOutlet;
                 inletValue      uniform ( 0 0 0 );
@@ -52,19 +52,19 @@ dictionaryReplacement
                 type            zeroGradient;
             }
 
-            minX
+            inlet
             {
                 type            fixedValue;
                 value           uniform 300;
             }
-            maxX
+            outlet
             {
                 type            inletOutlet;
                 inletValue      uniform 300;
                 value           uniform 300;
             }
 
-            "topAir_to_.*"
+            "air_to_.*"
             {
                 type            compressible::turbulentTemperatureCoupledBaffleMixed;
                 Tnbr            T;
@@ -87,12 +87,12 @@ dictionaryReplacement
                 value           uniform 0.01;
             }
 
-            minX
+            inlet
             {
                 type            fixedValue;
                 value           uniform 0.01;
             }
-            maxX
+            outlet
             {
                 type            inletOutlet;
                 inletValue      uniform 0.01;
@@ -113,12 +113,12 @@ dictionaryReplacement
                 value           uniform 0.1;
             }
 
-            minX
+            inlet
             {
                 type            fixedValue;
                 value           uniform 0.1;
             }
-            maxX
+            outlet
             {
                 type            inletOutlet;
                 inletValue      uniform 0.1;
@@ -139,7 +139,7 @@ dictionaryReplacement
                 value           uniform 1e5;
             }
 
-            maxX
+            outlet
             {
                 type            fixedValue;
                 value           uniform 1e5;
@@ -159,7 +159,7 @@ dictionaryReplacement
                 value           uniform 1e5;
             }
 
-            maxX
+            outlet
             {
                 type            calculated;
                 value           uniform 1e5;
