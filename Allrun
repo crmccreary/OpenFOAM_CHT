@@ -25,18 +25,18 @@ done
 #runApplication `getApplication`
 
 # Decompose
-#runApplication decomposePar -allRegions
+runApplication decomposePar -allRegions
 
 # Run
-#runParallel `getApplication` 4
+runParallel `getApplication` 4
 
 # Reconstruct
-#runApplication reconstructPar -allRegions
+runApplication reconstructPar -allRegions
 
 
-#echo
-#echo "creating files for paraview post-processing"
-#echo
-#paraFoam -touchAll
+echo
+echo "creating files for paraview post-processing"
+echo
+paraFoam -touchAll
 
 # ----------------------------------------------------------------- end-of-file
