@@ -42,7 +42,11 @@ dictionaryReplacement
             {
                 type            symmetryPlane;
             }
-            z_sym
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+            z_sym_2
             {
                 type            symmetryPlane;
             }
@@ -84,7 +88,11 @@ dictionaryReplacement
             {
                 type            symmetryPlane;
             }
-            z_sym
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+            z_sym_2
             {
                 type            symmetryPlane;
             }
@@ -118,7 +126,11 @@ dictionaryReplacement
             {
                 type            symmetryPlane;
             }
-            z_sym
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+            z_sym_2
             {
                 type            symmetryPlane;
             }
@@ -152,7 +164,11 @@ dictionaryReplacement
             {
                 type            symmetryPlane;
             }
-            z_sym
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+            z_sym_2
             {
                 type            symmetryPlane;
             }
@@ -180,7 +196,11 @@ dictionaryReplacement
             {
                 type            symmetryPlane;
             }
-            z_sym
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+            z_sym_2
             {
                 type            symmetryPlane;
             }
@@ -208,7 +228,11 @@ dictionaryReplacement
             {
                 type            symmetryPlane;
             }
-            z_sym
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+            z_sym_2
             {
                 type            symmetryPlane;
             }

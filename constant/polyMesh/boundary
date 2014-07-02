@@ -12,7 +12,7 @@ FoamFile
 	object		boundary;
 }
 
-7
+8
 (
     inlet
 	{
@@ -32,28 +32,34 @@ FoamFile
 	nFaces		522;
 	startFace	166138;
 	}
-    z_sym
-	{
-	type		symmetryPlane;
-	nFaces		5906;
-	startFace	166660;
-	}
     x_sym
 	{
-	type		symmetryPlane;
+	type		symmetry;
 	nFaces		746;
-	startFace	172566;
+	startFace	166660;
 	}
     flux
 	{
 	type		patch;
 	nFaces		120;
-	startFace	173312;
+	startFace	167406;
 	}
     defaultPatches
 	{
 	type		patch;
 	nFaces		1734;
-	startFace	173432;
+	startFace	167526;
+	}
+    z_sym_1
+	{
+	type		symmetry;
+	nFaces		3031;
+	startFace	169260;
+	}
+    z_sym_2
+	{
+	type		symmetry;
+	nFaces		2875;
+	startFace	172291;
 	}
 )
