@@ -17,8 +17,8 @@ FoamFile
 
 regions
 (
-    fluid       (bottomWater topAir)
-    solid       (heater leftSolid rightSolid)
+    fluid       (air)
+    solid       (rail)
 );
 
 // ************************************************************************* //

@@ -1,58 +1,53 @@
-/*--------------------------------*- C++ -*----------------------------------*\
-| =========                 |                                                 |
-| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2.3.0                                 |
-|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
-|    \\/     M anipulation  |                                                 |
-\*---------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------*\
+|                                                                      |
+|    File exported from Salome Platformusing SalomeToFoamExporter     |
+|                                                                      |
+\*--------------------------------------------------------------------*/
 FoamFile
 {
-    version     2.0;
-    format      binary;
-    class       polyBoundaryMesh;
-    location    "constant/polyMesh";
-    object      boundary;
+	version		2.0;
+	format		ascii;
+	class		polyBoundaryMesh;
+	location	"constant/polyMesh";
+	object		boundary;
 }
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-6
+8
 (
-    maxY
-    {
-        type            wall;
-        nFaces          300;
-        startFace       8300;
-    }
-    minX
-    {
-        type            patch;
-        nFaces          100;
-        startFace       8600;
-    }
-    maxX
-    {
-        type            patch;
-        nFaces          100;
-        startFace       8700;
-    }
-    minY
-    {
-        type            wall;
-        nFaces          300;
-        startFace       8800;
-    }
-    minZ
-    {
-        type            wall;
-        nFaces          300;
-        startFace       9100;
-    }
-    maxZ
-    {
-        type            wall;
-        nFaces          300;
-        startFace       9400;
-    }
+inlet
+	{
+	type		patch;
+	nFaces		48;
+	startFace	159092;
+	}
+wall
+	{
+	type		wall;
+	nFaces		3708;
+	startFace	159140;
+	}
+outlet
+	{
+	type		patch;
+	nFaces		522;
+	startFace	162848;
+	}
+z_sym
+	{
+	type		patch;
+	nFaces		5906;
+	startFace	163370;
+	}
+x_sym
+	{
+	type		patch;
+	nFaces		746;
+	startFace	169276;
+	}
+flux
+	{
+	type		patch;
+	nFaces		120;
+	startFace	170022;
+	}
 )
-
-// ************************************************************************* //
