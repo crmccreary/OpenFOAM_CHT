@@ -20,7 +20,7 @@ FoamFile
 	nFaces		48;
 	startFace	162382;
 	}
-    wall
+    walls
 	{
 	type		wall;
 	nFaces		3708;
