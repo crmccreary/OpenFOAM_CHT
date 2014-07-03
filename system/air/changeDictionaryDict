@@ -18,7 +18,7 @@ dictionaryReplacement
 {
     U
     {
-        internalField   uniform (0.1 0 0);
+        internalField   uniform (0 0.1 0);
 
         boundaryField
         {
@@ -29,7 +29,8 @@ dictionaryReplacement
             }
             inlet
             {
-                type            fixedValue;
+                type            inletOutlet;
+                inletvalue      uniform ( 0 0 0 );
                 value           uniform ( 0 0.1 0 );
             }
             outlet
@@ -66,7 +67,8 @@ dictionaryReplacement
 
             inlet
             {
-                type            fixedValue;
+                type            inletOutlet;
+                inletValue      uniform 300;
                 value           uniform 300;
             }
             outlet
@@ -107,29 +109,19 @@ dictionaryReplacement
         {
             ".*"
             {
-                type            compressible::epsilonWallFunction;
-                value           uniform 0.01;
+                type            calculated;
             }
 
-            inlet
-            {
-                type            fixedValue;
-                value           uniform 0.01;
-            }
-            outlet
-            {
-                type            inletOutlet;
-                inletValue      uniform 0.01;
-                value           uniform 0.01;
-            }
             x_sym
             {
                 type            symmetryPlane;
             }
+
             z_sym_1
             {
                 type            symmetryPlane;
             }
+
             z_sym_2
             {
                 type            symmetryPlane;
@@ -145,29 +137,19 @@ dictionaryReplacement
         {
             ".*"
             {
-                type            compressible::kqRWallFunction;
-                value           uniform 0.1;
+                type            calculated;
             }
 
-            inlet
-            {
-                type            fixedValue;
-                value           uniform 0.1;
-            }
-            outlet
-            {
-                type            inletOutlet;
-                inletValue      uniform 0.1;
-                value           uniform 0.1;
-            }
             x_sym
             {
                 type            symmetryPlane;
             }
+
             z_sym_1
             {
                 type            symmetryPlane;
             }
+
             z_sym_2
             {
                 type            symmetryPlane;
@@ -183,13 +165,19 @@ dictionaryReplacement
         {
             ".*"
             {
-                type            fixedFluxPressure;
+                type            buoyantPressure;
+                value           uniform 1e5;
+            }
+
+            "air_to_.*"
+            {
+                type            buoyantPressure;
                 value           uniform 1e5;
             }
 
             outlet
             {
-                type            fixedValue;
+                type            buoyantPressure;
                 value           uniform 1e5;
             }
             x_sym
@@ -219,19 +207,28 @@ dictionaryReplacement
                 value           uniform 1e5;
             }
 
+            "air_to_.*"
+            {
+                type            calculated;
+                value           uniform 1e5;
+            }
+
             outlet
             {
                 type            calculated;
                 value           uniform 1e5;
             }
+
             x_sym
             {
                 type            symmetryPlane;
             }
+
             z_sym_1
             {
                 type            symmetryPlane;
             }
+
             z_sym_2
             {
                 type            symmetryPlane;
