@@ -18,7 +18,7 @@ dictionaryReplacement
 {
     U
     {
-        internalField   uniform (0 0.1 0);
+        internalField   uniform (0 0.01 0);
 
         boundaryField
         {
@@ -31,13 +31,13 @@ dictionaryReplacement
             {
                 type            inletOutlet;
                 inletValue      uniform ( 0 0 0 );
-                value           uniform ( 0 0.1 0 );
+                value           uniform ( 0 0.01 0 );
             }
             outlet
             {
                 type            inletOutlet;
                 inletValue      uniform ( 0 0 0 );
-                value           uniform ( 0 0.1 0 );
+                value           uniform ( 0 0.01 0 );
             }
             x_sym
             {
@@ -50,6 +50,16 @@ dictionaryReplacement
             z_sym_2
             {
                 type            symmetryPlane;
+            }
+            walls
+            {
+                type            fixedValue;
+                value           uniform (0 0 0);
+            }
+            "air_to_.*"
+            {
+                type            fixedValue;
+                value           uniform (0 0 0);
             }
         }
     }

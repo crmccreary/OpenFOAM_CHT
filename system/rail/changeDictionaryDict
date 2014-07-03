@@ -18,14 +18,14 @@ dictionaryReplacement
 {
     T
     {
-        internalField   uniform 400;
+        internalField   uniform 320;
 
         boundaryField
         {
             ".*"
             {
                 type            zeroGradient;
-                value           uniform 400;
+                value           uniform 320;
             }
             "rail_to_.*"
             {
@@ -33,7 +33,7 @@ dictionaryReplacement
                 Tnbr            T;
                 kappa           solidThermo;
                 kappaName       none;
-                value           uniform 400;
+                value           uniform 320;
             }
 
             flux
