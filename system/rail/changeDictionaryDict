@@ -16,24 +16,16 @@ FoamFile
 
 dictionaryReplacement
 {
-    boundary
-    {
-        flux
-        {
-            type            patch;
-        }
-    }
-
     T
     {
-        internalField   uniform 320;
+        internalField   uniform 340;
 
         boundaryField
         {
             ".*"
             {
                 type            zeroGradient;
-                value           uniform 320;
+                value           uniform 340;
             }
             "rail_to_.*"
             {
@@ -41,7 +33,7 @@ dictionaryReplacement
                 Tnbr            T;
                 kappa           solidThermo;
                 kappaName       none;
-                value           uniform 320;
+                value           uniform 340;
             }
 
             flux
