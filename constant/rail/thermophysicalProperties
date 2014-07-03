@@ -27,26 +27,27 @@ thermoType
 
 mixture
 {
+    // Aluminum
     specie
     {
         nMoles      1;
-        molWeight   50;
+        molWeight   27;
     }
 
     transport
     {
-        kappa   80;
+        kappa   167;
     }
 
     thermodynamics
     {
         Hf      0;
-        Cp      450;
+        Cp      896;
     }
 
     equationOfState
     {
-        rho     8000;
+        rho     2700;
     }
 }
 
