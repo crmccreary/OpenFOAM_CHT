@@ -1,1 +1,11 @@
 nohup.out
+0/air
+0/cellToRegion
+0/rail/
+constant/air/polyMesh/
+constant/cellToRegion
+constant/polyMesh/sets/
+constant/rail/polyMesh/
+log.*
+processor*/
+
