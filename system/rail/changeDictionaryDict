@@ -46,8 +46,8 @@ dictionaryReplacement
 
             flux
             {
-                type            fixedValue;
-                value           uniform 360;
+                type            fixedGradient;
+                value           uniform 0.65;
             }
         }
     }
