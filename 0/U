@@ -25,14 +25,31 @@ boundaryField
         type            calculated;
         value           uniform (0.01 0 0);
     }
+
+    inlet
+    {
+        type            inletOutlet;
+        inletvalue      uniform ( 0 0 0 );
+        value           uniform ( 0 0.1 0 );
+    }
+
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform ( 0 0 0 );
+        value           uniform ( 0 0.1 0 );
+    }
+
     x_sym   
     {       
         type            symmetryPlane;
     }       
+
     z_sym_1 
     {       
         type            symmetryPlane;
     }       
+
     z_sym_2 
     {       
         type            symmetryPlane;
