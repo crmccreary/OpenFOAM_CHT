@@ -47,7 +47,7 @@ dictionaryReplacement
             flux
             {
                 type            fixedGradient;
-                gradient        uniform 0.65;
+                gradient        uniform 17.19;
             }
         }
     }
