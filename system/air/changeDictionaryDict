@@ -165,19 +165,19 @@ dictionaryReplacement
         {
             ".*"
             {
-                type            buoyantPressure;
+                type            fixedFluxPressure;
                 value           uniform 1e5;
             }
 
             "air_to_.*"
             {
-                type            buoyantPressure;
+                type            fixedFluxPressure;
                 value           uniform 1e5;
             }
 
             outlet
             {
-                type            buoyantPressure;
+                type            fixedFluxPressure;
                 value           uniform 1e5;
             }
             x_sym
