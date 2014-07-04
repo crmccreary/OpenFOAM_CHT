@@ -41,6 +41,12 @@ dictionaryReplacement
                 type            fixedGradient;
                 gradient        uniform 17.19;
             }
+
+            defaultPatches
+            {
+                type            zeroGradient;
+                value           uniform 320;
+            }
         }
     }
 }
