@@ -34,7 +34,7 @@ solvers
 
 PIMPLE
 {
-    nNonOrthogonalCorrectors 20;
+    nNonOrthogonalCorrectors 5;
 }
 
 // ************************************************************************* //
