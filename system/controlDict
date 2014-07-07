@@ -17,6 +17,10 @@ FoamFile
 
 libs
 (
+    "libOpenFOAM.so"
+    "libsimpleSwakFunctionObjects.so"
+    "libswakFunctionObjects.so"
+    "libgroovyBC.so"
     "libcompressibleTurbulenceModel.so"
     "libcompressibleRASModels.so"
 );
@@ -39,9 +43,9 @@ writeInterval   1.0;
 
 purgeWrite      0;
 
-writeFormat     binary;
+writeFormat     ascii;
 
-//writePrecision  8;
+writePrecision  8;
 
 writeCompression off;
 
@@ -58,4 +62,27 @@ maxDi           0.00067;
 
 adjustTimeStep  yes;
 
+functions
+(
+    airT
+    {
+    type patchAverage;
+    functionObjectLibs ("libsimpleFunctionObjects.so");
+    fields ( T );
+    patches ( outlet );
+        region air;
+    verbose true;
+    factor 1;
+    }
+    airU
+    {
+    type patchAverage;
+    functionObjectLibs ("libsimpleFunctionObjects.so");
+    fields ( U );
+    patches ( outlet );
+        region air;
+    verbose true;
+    factor 1;
+    }
+);
 // ************************************************************************* //
