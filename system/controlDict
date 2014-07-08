@@ -64,7 +64,7 @@ adjustTimeStep  yes;
 
 functions
 (
-    airT
+    airOutletT
     {
     type patchAverage;
     functionObjectLibs ("libsimpleFunctionObjects.so");
@@ -74,12 +74,32 @@ functions
     verbose true;
     factor 1;
     }
-    airU
+    airOutletU
     {
     type patchAverage;
     functionObjectLibs ("libsimpleFunctionObjects.so");
     fields ( U );
     patches ( outlet );
+        region air;
+    verbose true;
+    factor 1;
+    }
+    airInletT
+    {
+    type patchAverage;
+    functionObjectLibs ("libsimpleFunctionObjects.so");
+    fields ( T );
+    patches ( inlet );
+        region air;
+    verbose true;
+    factor 1;
+    }
+    airInletU
+    {
+    type patchAverage;
+    functionObjectLibs ("libsimpleFunctionObjects.so");
+    fields ( U );
+    patches ( inlet );
         region air;
     verbose true;
     factor 1;
