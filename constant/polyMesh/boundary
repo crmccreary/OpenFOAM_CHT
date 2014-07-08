@@ -14,52 +14,52 @@ FoamFile
 
 8
 (
-    inlet
+	x_sym
 	{
-	type		patch;
-	nFaces		48;
-	startFace	162382;
+	type		symmetryPlane;
+	nFaces		3241;
+	startFace	1191778;
 	}
-    walls
-	{
-	type		wall;
-	nFaces		3708;
-	startFace	162430;
-	}
-    outlet
+	flux
 	{
 	type		patch;
 	nFaces		522;
-	startFace	166138;
+	startFace	1195019;
 	}
-    x_sym
+	z_sym_1
 	{
 	type		symmetryPlane;
-	nFaces		746;
-	startFace	166660;
+	nFaces		11879;
+	startFace	1195541;
 	}
-    flux
+	z_sym_2
+	{
+	type		symmetryPlane;
+	nFaces		12675;
+	startFace	1207420;
+	}
+	inlet
 	{
 	type		patch;
-	nFaces		120;
-	startFace	167406;
+	nFaces		188;
+	startFace	1220095;
 	}
-    defaultPatches
+	wall
+	{
+	type		wall;
+	nFaces		15219;
+	startFace	1220283;
+	}
+	outlet
 	{
 	type		patch;
-	nFaces		1734;
-	startFace	167526;
+	nFaces		2094;
+	startFace	1235502;
 	}
-    z_sym_1
+	defaultPatches
 	{
-	type		symmetryPlane;
-	nFaces		3031;
-	startFace	169260;
-	}
-    z_sym_2
-	{
-	type		symmetryPlane;
-	nFaces		2875;
-	startFace	172291;
+	type		patch;
+	nFaces		6770;
+	startFace	1237596;
 	}
 )
