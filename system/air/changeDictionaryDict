@@ -75,7 +75,8 @@ dictionaryReplacement
 
             inlet
             {
-                type            fixedValue;
+                type            inletOutlet;
+                inletValue      uniform 300;
                 value           uniform 300;
             }
             outlet
@@ -137,7 +138,8 @@ dictionaryReplacement
 
             inlet
             {
-                type            fixedValue;
+                type            inletOutlet;
+                inletValue      uniform 0.01;
                 value           uniform 0.01;
             }
             outlet
@@ -164,7 +166,8 @@ dictionaryReplacement
 
             inlet
             {
-                type            fixedValue;
+                type            inletOutlet;
+                inletValue      uniform 0.1;
                 value           uniform 0.1;
             }
             outlet
@@ -211,15 +214,18 @@ dictionaryReplacement
 
             inlet
             {
-                type            fixedFluxPressure;
-                value           uniform 1e5;
+                type            inletOutlet;
+                inletValue      uniform 1.0e5;
+                value           uniform 1.0e5;
             }
 
             outlet
             {
-                type            fixedValue;
-                value           uniform 1e5;
+                type            inletOutlet;
+                inletValue      uniform 1.0e5;
+                value           uniform 1.0e5;
             }
+
             x_sym
             {
                 type            symmetryPlane;
@@ -253,10 +259,18 @@ dictionaryReplacement
                 value           uniform 1e5;
             }
 
+            inlet
+            {
+                type            inletOutlet;
+                inletValue      uniform 1.0e5;
+                value           uniform 1.0e5;
+            }
+
             outlet
             {
-                type            calculated;
-                value           uniform 1e5;
+                type            inletOutlet;
+                inletValue      uniform 1.0e5;
+                value           uniform 1.0e5;
             }
 
             x_sym

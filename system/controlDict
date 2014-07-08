@@ -70,9 +70,11 @@ functions
     functionObjectLibs ("libsimpleFunctionObjects.so");
     fields ( T );
     patches ( outlet );
-        region air;
+    region air;
     verbose true;
     factor 1;
+    outputControlMode   timeStep;
+    outputInterval    1;
     }
     airOutletU
     {
@@ -80,9 +82,11 @@ functions
     functionObjectLibs ("libsimpleFunctionObjects.so");
     fields ( U );
     patches ( outlet );
-        region air;
+    region air;
     verbose true;
     factor 1;
+    outputControlMode   timeStep;
+    outputInterval    1;
     }
     airInletT
     {
@@ -90,9 +94,11 @@ functions
     functionObjectLibs ("libsimpleFunctionObjects.so");
     fields ( T );
     patches ( inlet );
-        region air;
+    region air;
     verbose true;
     factor 1;
+    outputControlMode   timeStep;
+    outputInterval    1;
     }
     airInletU
     {
@@ -100,9 +106,11 @@ functions
     functionObjectLibs ("libsimpleFunctionObjects.so");
     fields ( U );
     patches ( inlet );
-        region air;
+    region air;
     verbose true;
     factor 1;
+    outputControlMode   timeStep;
+    outputInterval    1;
     }
 );
 // ************************************************************************* //
