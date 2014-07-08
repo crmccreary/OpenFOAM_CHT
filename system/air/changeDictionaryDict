@@ -27,15 +27,31 @@ dictionaryReplacement
                 type            fixedValue;
                 value           uniform (0 0 0);
             }
-            inlet
-            {
-                type            zeroGradient;
-                value           uniform ( 0 0 0 );
-            }
             outlet
             {
-                type            zeroGradient;
+                //
+                // inletOutlet is basically a fixedValue boundary condition when a 
+                // flux into the domain is present and a zeroGradient when the flux 
+                // is pointing outwards. Though boundary conditions are applied to 
+                // boundary patches, this decision is done on a face-to-face basis. 
+                // This means that two adjoining boundary faces on a boundary patch 
+                // might have fluxes with different signs and are hence handled differently.
+                //
+                type            inletOutlet;
+                inletValue      uniform ( 0 0 0 );
                 value           uniform ( 0 0 0 );
+            }
+
+            inlet
+            {
+                //
+                // The outletInlet boundary condition does this decision in the same manner, 
+                // but if there is an inward flux, it is a zeroGradient and otherwise a 
+                // fixedValue boundary condition.
+                //
+                type            outletInlet;
+                outletValue     uniform ( 0 0 0 );
+                value           uniform ( 0 0.001 0 );
             }
             x_sym
             {
