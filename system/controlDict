@@ -39,7 +39,7 @@ deltaT          0.001;
 
 writeControl    adjustableRunTime;
 
-writeInterval   0.01;
+writeInterval   0.1;
 
 purgeWrite      0;
 
@@ -88,6 +88,30 @@ functions
     outputControlMode   timeStep;
     outputInterval    1;
     }
+    airOutletprgh
+    {
+    type patchAverage;
+    functionObjectLibs ("libsimpleFunctionObjects.so");
+    fields ( p_rgh );
+    patches ( outlet );
+    region air;
+    verbose true;
+    factor 1;
+    outputControlMode   timeStep;
+    outputInterval    1;
+    }
+    airOutletp
+    {
+    type patchAverage;
+    functionObjectLibs ("libsimpleFunctionObjects.so");
+    fields ( p );
+    patches ( outlet );
+    region air;
+    verbose true;
+    factor 1;
+    outputControlMode   timeStep;
+    outputInterval    1;
+    }
     airInletT
     {
     type patchAverage;
@@ -105,6 +129,30 @@ functions
     type patchAverage;
     functionObjectLibs ("libsimpleFunctionObjects.so");
     fields ( U );
+    patches ( inlet );
+    region air;
+    verbose true;
+    factor 1;
+    outputControlMode   timeStep;
+    outputInterval    1;
+    }
+    airInletprgh
+    {
+    type patchAverage;
+    functionObjectLibs ("libsimpleFunctionObjects.so");
+    fields ( p_rgh );
+    patches ( inlet );
+    region air;
+    verbose true;
+    factor 1;
+    outputControlMode   timeStep;
+    outputInterval    1;
+    }
+    airInletp
+    {
+    type patchAverage;
+    functionObjectLibs ("libsimpleFunctionObjects.so");
+    fields ( p );
     patches ( inlet );
     region air;
     verbose true;
