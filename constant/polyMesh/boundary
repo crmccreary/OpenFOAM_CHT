@@ -16,11 +16,11 @@ FoamFile
 (
 	x_sym
 	{
-	type		symmetryPlane;
+	type		wall;
 	nFaces		3241;
 	startFace	1191778;
 	}
-	flux
+	appliedFlux
 	{
 	type		patch;
 	nFaces		522;
@@ -28,13 +28,13 @@ FoamFile
 	}
 	z_sym_1
 	{
-	type		symmetryPlane;
+	type		wall;
 	nFaces		11879;
 	startFace	1195541;
 	}
 	z_sym_2
 	{
-	type		symmetryPlane;
+	type		wall;
 	nFaces		12675;
 	startFace	1207420;
 	}

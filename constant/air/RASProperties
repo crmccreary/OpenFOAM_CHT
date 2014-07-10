@@ -9,22 +9,16 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volScalarField;
-    object      T;
+    class       dictionary;
+    object      RASProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 0 0 1 0 0 0];
+RASModel kEpsilon;
 
-internalField   uniform 300;
+turbulence      on;
 
-boundaryField
-{
-    ".*"
-    {
-        type            calculated;
-        value           uniform 300;
-    }
-}
+printCoeffs     on;
+
 
 // ************************************************************************* //

@@ -34,7 +34,11 @@ solvers
 
 PIMPLE
 {
-    nNonOrthogonalCorrectors 5;
+    nNonOrthogonalCorrectors 1;
+}
+SolidRegionSubCycleControl
+{
+    maxDeltaTForSolidRegion 1.0E-4;
 }
 
 // ************************************************************************* //

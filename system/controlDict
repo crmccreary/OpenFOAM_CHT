@@ -23,23 +23,31 @@ libs
     "libgroovyBC.so"
     "libcompressibleTurbulenceModel.so"
     "libcompressibleRASModels.so"
+    "libswakTopoSources.so"
+    "libswakPythonIntegration.so"
+    "libswakMeshQualityFunctionPlugin.so"
+    "libswakLocalCalculationsFunctionPlugin.so"
+    "libswakRandomFunctionPlugin.so"
+    "libswakFvcSchemesFunctionPlugin.so"
+    "libswakThermoTurbFunctionPlugin.so"
+    "libswakSurfacesAndSetsFunctionPlugin.so"
 );
 
 application     chtMultiRegionFoam;
 
 startFrom       latestTime;
 
-startTime       0.001;
+startTime       0;
 
 stopAt          endTime;
 
 endTime         1000;
 
-deltaT          0.001;
+deltaT          0.005;
 
 writeControl    adjustableRunTime;
 
-writeInterval   0.1;
+writeInterval   0.25;
 
 purgeWrite      0;
 
@@ -55,15 +63,50 @@ timePrecision   6;
 
 runTimeModifiable yes;
 
-maxCo           0.6;
+maxCo           0.8;
 
 // Maximum diffusion number
-maxDi           0.00067;
+maxDi           0.003;
 
 adjustTimeStep  yes;
 
 functions
 (
+    HeatLoss
+    {
+        type patchExpression;
+        patches (inlet outlet);
+        verbose true;
+        aliases {
+            alpha thermo:alpha;
+        }
+        expression"alpha*area()*snGrad(h)";
+        accumulations (sum);
+        region air;
+        factor 1.;
+        outputControlMode   timeStep;
+        outputInterval    1;
+    }
+
+    massFlow
+    {
+     type patchMassFlow;
+     functionObjectLibs
+       (
+         "libsimpleFunctionObjects.so"
+       );
+     verbose true;
+     patches
+       (
+         inlet
+         outlet
+       );
+     region air;
+     factor 1.;
+     outputControlMode   timeStep;
+     outputInterval    1;
+    }
+
     airOutletT
     {
     type patchAverage;

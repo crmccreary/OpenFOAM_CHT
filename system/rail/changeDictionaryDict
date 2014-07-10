@@ -36,7 +36,7 @@ dictionaryReplacement
                 value           uniform 320;
             }
 
-            flux
+            appliedFlux
             {
                 type            fixedGradient;
                 gradient        uniform 17.19;

@@ -18,7 +18,7 @@ dictionaryReplacement
 {
     U
     {
-        internalField   uniform (0 0.001 0);
+        internalField   uniform (0 0.00037 0);
 
         boundaryField
         {
@@ -39,7 +39,7 @@ dictionaryReplacement
                 //
                 type            inletOutlet;
                 inletValue      uniform ( 0 0 0 );
-                value           uniform ( 0 0 0 );
+                value           uniform ( 0 0.00037 0 );
             }
 
             inlet
@@ -49,31 +49,11 @@ dictionaryReplacement
                 // but if there is an inward flux, it is a zeroGradient and otherwise a 
                 // fixedValue boundary condition.
                 //
-                type            outletInlet;
-                outletValue     uniform ( 0 0 0 );
-                value           uniform ( 0 0.001 0 );
-            }
-            x_sym
-            {
-                type            symmetryPlane;
-            }
-            z_sym_1
-            {
-                type            symmetryPlane;
-            }
-            z_sym_2
-            {
-                type            symmetryPlane;
-            }
-            walls
-            {
+                //type            outletInlet;
+                //outletValue     uniform ( 0 0 0 );
+                //value           uniform ( 0 0.001 0 );
                 type            fixedValue;
-                value           uniform (0 0 0);
-            }
-            "air_to_.*"
-            {
-                type            fixedValue;
-                value           uniform (0 0 0);
+                value           uniform (0 0.01 0);
             }
         }
     }
@@ -91,8 +71,10 @@ dictionaryReplacement
 
             inlet
             {
-                type            inletOutlet;
-                inletValue      uniform 300;
+                //type            inletOutlet;
+                //inletValue      uniform 300;
+                //value           uniform 300;
+                type            fixedValue;
                 value           uniform 300;
             }
             outlet
@@ -110,18 +92,6 @@ dictionaryReplacement
                 kappaName       none;
                 value           uniform 300;
             }
-            x_sym
-            {
-                type            symmetryPlane;
-            }
-            z_sym_1
-            {
-                type            symmetryPlane;
-            }
-            z_sym_2
-            {
-                type            symmetryPlane;
-            }
         }
     }
 
@@ -137,25 +107,12 @@ dictionaryReplacement
                 value           uniform 0.01;
             }
 
-            x_sym
-            {
-                type            symmetryPlane;
-            }
-
-            z_sym_1
-            {
-                type            symmetryPlane;
-            }
-
-            z_sym_2
-            {
-                type            symmetryPlane;
-            }
-
             inlet
             {
-                type            inletOutlet;
-                inletValue      uniform 0.01;
+                //type            inletOutlet;
+                //inletValue      uniform 0.01;
+                //value           uniform 0.01;
+                type            fixedValue;
                 value           uniform 0.01;
             }
             outlet
@@ -182,8 +139,10 @@ dictionaryReplacement
 
             inlet
             {
-                type            inletOutlet;
-                inletValue      uniform 0.1;
+                //type            inletOutlet;
+                //inletValue      uniform 0.1;
+                //value           uniform 0.1;
+                type            fixedValue;
                 value           uniform 0.1;
             }
             outlet
@@ -191,21 +150,6 @@ dictionaryReplacement
                 type            inletOutlet;
                 inletValue      uniform 0.1;
                 value           uniform 0.1;
-            }
-
-            x_sym
-            {
-                type            symmetryPlane;
-            }
-
-            z_sym_1
-            {
-                type            symmetryPlane;
-            }
-
-            z_sym_2
-            {
-                type            symmetryPlane;
             }
         }
     }
@@ -222,37 +166,22 @@ dictionaryReplacement
                 value           uniform 1e5;
             }
 
-            "air_to_.*"
-            {
-                type            fixedFluxPressure;
-                value           uniform 1e5;
-            }
-
-            inlet
-            {
-                type            inletOutlet;
-                inletValue      uniform 1.0e5;
-                value           uniform 1.0e5;
-            }
+            //inlet
+            //{
+                //type            inletOutlet;
+                //inletValue      uniform 1.0e5;
+                //value           uniform 1.0e5;
+                //type            fixedValue;
+                //value           uniform 1.0e5;
+            //}
 
             outlet
             {
-                type            inletOutlet;
-                inletValue      uniform 1.0e5;
+                //type            inletOutlet;
+                //inletValue      uniform 1.0e5;
+                //value           uniform 1.0e5;
+                type            fixedValue;
                 value           uniform 1.0e5;
-            }
-
-            x_sym
-            {
-                type            symmetryPlane;
-            }
-            z_sym_1
-            {
-                type            symmetryPlane;
-            }
-            z_sym_2
-            {
-                type            symmetryPlane;
             }
         }
     }
@@ -269,40 +198,21 @@ dictionaryReplacement
                 value           uniform 1e5;
             }
 
-            "air_to_.*"
-            {
-                type            calculated;
-                value           uniform 1e5;
-            }
+            //inlet
+            //{
+                //type            inletOutlet;
+                //inletValue      uniform 1.0e5;
+                //value           uniform 1.0e5;
+                //type            fixedValue;
+                //value           uniform 1.0e5;
+            //}
 
-            inlet
-            {
-                type            inletOutlet;
-                inletValue      uniform 1.0e5;
-                value           uniform 1.0e5;
-            }
-
-            outlet
-            {
-                type            inletOutlet;
-                inletValue      uniform 1.0e5;
-                value           uniform 1.0e5;
-            }
-
-            x_sym
-            {
-                type            symmetryPlane;
-            }
-
-            z_sym_1
-            {
-                type            symmetryPlane;
-            }
-
-            z_sym_2
-            {
-                type            symmetryPlane;
-            }
+            //outlet
+            //{
+                //type            inletOutlet;
+                //inletValue      uniform 1.0e5;
+                //value           uniform 1.0e5;
+            //}
         }
     }
 }

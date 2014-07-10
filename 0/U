@@ -16,44 +16,16 @@ FoamFile
 
 dimensions      [0 1 -1 0 0 0 0];
 
-internalField   uniform (0.01 0 0);
+internalField   uniform (0 0.001 0);
 
 boundaryField
 {
     ".*"
     {
         type            calculated;
-        value           uniform (0.01 0 0);
+        value           uniform (0 0 0);
     }
 
-    inlet
-    {
-        type            inletOutlet;
-        inletValue      uniform ( 0 0 0 );
-        value           uniform ( 0 0.1 0 );
-    }
-
-    outlet
-    {
-        type            inletOutlet;
-        inletValue      uniform ( 0 0 0 );
-        value           uniform ( 0 0.1 0 );
-    }
-
-    x_sym   
-    {       
-        type            symmetryPlane;
-    }       
-
-    z_sym_1 
-    {       
-        type            symmetryPlane;
-    }       
-
-    z_sym_2 
-    {       
-        type            symmetryPlane;
-    }       
 }
 
 // ************************************************************************* //
