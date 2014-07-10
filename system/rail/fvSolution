@@ -23,22 +23,20 @@ solvers
         tolerance        1e-07;
         relTol           0.005;
     }
-
-    hFinal
-    {
-        $h;
-        tolerance        1e-07;
-        relTol           0;
-    }
 }
 
-PIMPLE
+SIMPLE
 {
     nNonOrthogonalCorrectors 1;
 }
-SolidRegionSubCycleControl
+relaxationFactors
 {
-    maxDeltaTForSolidRegion 1.0E-4;
+    fields
+    {
+    }
+    equations
+    {
+        h               0.7;
+    }
 }
-
 // ************************************************************************* //
