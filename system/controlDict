@@ -80,6 +80,22 @@ functions
         outputInterval    1;
     }
 
+    HeatInputRail
+    {
+        type patchExpression;
+        patches (appliedFlux);
+        verbose true;
+        //aliases {
+        //    Kappa thermo.Kappa;
+        //}
+        expression"K*area()*snGrad(h)";
+        accumulations (sum);
+        region rail;
+        factor 1.;
+        outputControlMode   timeStep;
+        outputInterval    1;
+    }
+
     massFlow
     {
      type patchMassFlow;

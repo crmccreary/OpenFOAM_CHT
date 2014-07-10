@@ -180,7 +180,7 @@ dictionaryReplacement
                 //type            inletOutlet;
                 //inletValue      uniform 1.0e5;
                 //value           uniform 1.0e5;
-                type            fixedValue;
+                type            fixedFluxPressure;
                 value           uniform 1.0e5;
             }
         }
