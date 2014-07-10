@@ -28,7 +28,7 @@ done
 runApplication decomposePar -allRegions
 
 # Run
-runParallel `getApplication` 8
+runParallel `getApplication` 30
 
 # Reconstruct
 runApplication reconstructPar -allRegions
