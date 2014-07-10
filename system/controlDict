@@ -24,7 +24,6 @@ libs
     "libcompressibleTurbulenceModel.so"
     "libcompressibleRASModels.so"
     "libswakTopoSources.so"
-    "libswakPythonIntegration.so"
     "libswakMeshQualityFunctionPlugin.so"
     "libswakLocalCalculationsFunctionPlugin.so"
     "libswakRandomFunctionPlugin.so"
@@ -47,7 +46,7 @@ deltaT          1;
 
 writeControl    timeStep;
 
-writeInterval   50;
+writeInterval   100;
 
 purgeWrite      0;
 
