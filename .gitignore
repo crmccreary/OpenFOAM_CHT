@@ -8,4 +8,4 @@ constant/polyMesh/sets/
 constant/rail/polyMesh/
 log.*
 processor*/
-
+postProcessing
