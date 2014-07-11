@@ -52,6 +52,10 @@ dictionaryReplacement
                 type            outletInlet;
                 outletValue     uniform ( 0 0 0 );
                 value           uniform ( 0 0.001 0 );
+                // Apply forced convection to get the solution
+                // started for 1000 increments
+                // then change over to outletInlet for
+                // natural convection
                 //type            fixedValue;
                 //value           uniform (0 0.01 0);
             }
@@ -74,8 +78,6 @@ dictionaryReplacement
                 type            inletOutlet;
                 inletValue      uniform 300;
                 value           uniform 300;
-                //type            fixedValue;
-                //value           uniform 300;
             }
             outlet
             {
@@ -109,10 +111,8 @@ dictionaryReplacement
 
             inlet
             {
-                //type            inletOutlet;
-                //inletValue      uniform 0.01;
-                //value           uniform 0.01;
-                type            fixedValue;
+                type            inletOutlet;
+                inletValue      uniform 0.01;
                 value           uniform 0.01;
             }
             outlet
@@ -139,10 +139,8 @@ dictionaryReplacement
 
             inlet
             {
-                //type            inletOutlet;
-                //inletValue      uniform 0.1;
-                //value           uniform 0.1;
-                type            fixedValue;
+                type            inletOutlet;
+                inletValue      uniform 0.1;
                 value           uniform 0.1;
             }
             outlet
@@ -177,11 +175,8 @@ dictionaryReplacement
 
             outlet
             {
-                type            inletOutlet;
-                inletValue      uniform 1.0e5;
+                type            fixedFluxPressure;
                 value           uniform 1.0e5;
-                //type            fixedValue;
-                //value           uniform 1.0e5;
             }
         }
     }
@@ -203,15 +198,12 @@ dictionaryReplacement
                 type            inletOutlet;
                 inletValue      uniform 1.0e5;
                 value           uniform 1.0e5;
-                type            fixedValue;
-                value           uniform 1.0e5;
             }
 
             outlet
             {
-                type            inletOutlet;
-                inletValue      uniform 1.0e5;
-                value           uniform 1.0e5;
+                type            calculated;
+                value           uniform 1e5;
             }
         }
     }
