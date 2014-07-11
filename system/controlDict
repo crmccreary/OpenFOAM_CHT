@@ -40,7 +40,7 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         1000;
+endTime         50000;
 
 deltaT          1;
 
@@ -80,6 +80,23 @@ functions
         outputInterval    1;
     }
 
+    //listFields {
+    //    type listRegisteredObjects;
+    //    region rail;
+    //}
+
+    energyRegionAir{
+        type swakExpression;
+        region air;
+        expression "sum(h*vol())";
+        accumulations ( average );
+        valueType internalField;
+        verbose true;
+        factor 1.;
+        outputControlMode   timeStep;
+        outputInterval    1;
+    }
+
     massFlow
     {
      type patchMassFlow;
@@ -99,101 +116,82 @@ functions
      outputInterval    1;
     }
 
-    airOutletT
+    velocities
     {
-    type patchAverage;
-    functionObjectLibs ("libsimpleFunctionObjects.so");
-    fields ( T );
-    patches ( outlet );
-    region air;
-    verbose true;
-    factor 1;
-    outputControlMode   timeStep;
-    outputInterval    1;
+        type patchExpression;
+        accumulations (
+            min
+            max
+            average
+        );
+        expression "U";
+        patches (
+            inlet
+            outlet
+        );
+        region air;
+        verbose true;
+        factor 1;
+        outputControlMode   timeStep;
+        outputInterval    1;
     }
-    airOutletU
+
+    p_rgh
     {
-    type patchAverage;
-    functionObjectLibs ("libsimpleFunctionObjects.so");
-    fields ( U );
-    patches ( outlet );
-    region air;
-    verbose true;
-    factor 1;
-    outputControlMode   timeStep;
-    outputInterval    1;
+        type patchExpression;
+        accumulations (
+            min
+            max
+            average
+        );
+        expression "p_rgh";
+        patches (
+            inlet
+            outlet
+        );
+        region air;
+        verbose true;
+        factor 1;
+        outputControlMode   timeStep;
+        outputInterval    1;
     }
-    airOutletprgh
+
+    p
     {
-    type patchAverage;
-    functionObjectLibs ("libsimpleFunctionObjects.so");
-    fields ( p_rgh );
-    patches ( outlet );
-    region air;
-    verbose true;
-    factor 1;
-    outputControlMode   timeStep;
-    outputInterval    1;
+        type patchExpression;
+        accumulations (
+            min
+            max
+            average
+        );
+        expression "p";
+        patches (
+            inlet
+            outlet
+        );
+        region air;
+        verbose true;
+        factor 1;
+        outputControlMode   timeStep;
+        outputInterval    1;
     }
-    airOutletp
+
+    airT
     {
-    type patchAverage;
-    functionObjectLibs ("libsimpleFunctionObjects.so");
-    fields ( p );
-    patches ( outlet );
-    region air;
-    verbose true;
-    factor 1;
-    outputControlMode   timeStep;
-    outputInterval    1;
-    }
-    airInletT
-    {
-    type patchAverage;
-    functionObjectLibs ("libsimpleFunctionObjects.so");
-    fields ( T );
-    patches ( inlet );
-    region air;
-    verbose true;
-    factor 1;
-    outputControlMode   timeStep;
-    outputInterval    1;
-    }
-    airInletU
-    {
-    type patchAverage;
-    functionObjectLibs ("libsimpleFunctionObjects.so");
-    fields ( U );
-    patches ( inlet );
-    region air;
-    verbose true;
-    factor 1;
-    outputControlMode   timeStep;
-    outputInterval    1;
-    }
-    airInletprgh
-    {
-    type patchAverage;
-    functionObjectLibs ("libsimpleFunctionObjects.so");
-    fields ( p_rgh );
-    patches ( inlet );
-    region air;
-    verbose true;
-    factor 1;
-    outputControlMode   timeStep;
-    outputInterval    1;
-    }
-    airInletp
-    {
-    type patchAverage;
-    functionObjectLibs ("libsimpleFunctionObjects.so");
-    fields ( p );
-    patches ( inlet );
-    region air;
-    verbose true;
-    factor 1;
-    outputControlMode   timeStep;
-    outputInterval    1;
+        type patchExpression;
+        accumulations (
+            min
+            max
+            average
+        );
+        expression "T";
+        patches ( inlet
+                  outlet);
+        region air;
+        verbose true;
+        factor 1;
+        outputControlMode   timeStep;
+        outputInterval    1;
     }
 );
 // ************************************************************************* //
