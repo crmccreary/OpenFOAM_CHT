@@ -38,6 +38,8 @@ runApplication reconstructPar -allRegions
 
 # Set up for the free convection
 for x in log*;do mv $x forced_${x};done
+rm -r processor*
+rm -r postProcessing
 cp system/air/changeDictionaryDict.free system/air/changeDictionaryDict
 cp system/controlDict.free system/controlDict
 
@@ -45,6 +47,9 @@ for i in air rail
 do
    changeDictionary -region $i > log.changeDictionary.$i 2>&1
 done
+
+# Decompose
+runApplication decomposePar -allRegions
 
 # Run
 runParallel `getApplication` 30
