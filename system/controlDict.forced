@@ -40,7 +40,7 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         30000;
+endTime         1000;
 
 deltaT          1;
 
@@ -64,22 +64,6 @@ runTimeModifiable true;
 
 functions
 (
-    HeatLoss
-    {
-        type patchExpression;
-        patches (inlet outlet);
-        verbose true;
-        aliases {
-            alpha thermo:alpha;
-        }
-        expression"alpha*area()*snGrad(h)";
-        accumulations (sum);
-        region air;
-        factor 1.;
-        outputControlMode   timeStep;
-        outputInterval    1;
-    }
-
     //listFields {
     //    type listRegisteredObjects;
     //    region rail;
@@ -114,6 +98,24 @@ functions
      factor 1.;
      outputControlMode   timeStep;
      outputInterval    1;
+    }
+
+    deltaQ
+    {
+        type patchExpression;
+        verbose true;
+        accumulations (
+            sum
+        );
+        patches (
+            inlet
+            outlet
+        );
+        expression "phi*1006.7*(T - 300.0)";
+        region air;
+        factor 1.;
+        outputControlMode   timeStep;
+        outputInterval    1;
     }
 
     velocities
