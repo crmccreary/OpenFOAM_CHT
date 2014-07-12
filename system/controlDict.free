@@ -34,9 +34,9 @@ libs
 
 application     chtMultiRegionSimpleFoam;
 
-startFrom       startTime;
+startFrom       latestTime;
 
-startTime       0;
+startTime       1000;
 
 stopAt          endTime;
 
