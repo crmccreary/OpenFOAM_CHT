@@ -24,7 +24,8 @@ done
 # Decompose
 runApplication decomposePar -allRegions
 
-runParallel renumberMesh -overwrite 8
+runParallel renumberMesh 8 -overwrite -region air
+runParallel renumberMesh 8 -overwrite -region rail
 # Run
 runParallel `getApplication` 8
 

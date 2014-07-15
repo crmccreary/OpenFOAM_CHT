@@ -31,5 +31,16 @@ energySource1
     }
 }
 
+tempLimit
+{
+    type            temperatureLimitsConstraint;
+    selectionMode   all;
+    active          true;
 
+        temperatureLimitsConstraintCoeffs
+        {
+            Tmin     300;
+            Tmax     400;
+        }
+}
 // ************************************************************************* //
