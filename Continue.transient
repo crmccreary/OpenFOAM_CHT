@@ -1,0 +1,26 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+cp system/controlDict.transient system/controlDict
+cp system/fvSchemes.transient system/fvSchemes
+cp system/fvSolution.transient system/fvSolution
+cp system/air/fvSchemes.transient system/air/fvSchemes
+cp system/air/fvSolution.transient system/air/fvSolution
+cp system/rail/fvSchemes.transient system/rail/fvSchemes
+cp system/rail/fvSolution.transient system/rail/fvSolution
+
+# Run
+runParallel `getApplication` 8
+
+# Reconstruct
+runApplication reconstructPar -allRegions
+
+echo
+echo "creating files for paraview post-processing"
+echo
+paraFoam -touchAll
+
+# ----------------------------------------------------------------- end-of-file

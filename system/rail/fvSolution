@@ -21,22 +21,26 @@ solvers
         solver           PCG;
         preconditioner   DIC;
         tolerance        1e-07;
+        relTol           0.005;
+    }
+
+    hFinal
+    {
+        $h;
+        tolerance        1e-07;
         relTol           0;
     }
 }
 
-SIMPLE
+PIMPLE
 {
-    nNonOrthogonalCorrectors 3;
+    nNonOrthogonalCorrectors 1;
+    nCorrectors         2;
 }
-//relaxationFactors
-//{
-//    fields
-//    {
-//    }
-//    equations
-//    {
-//        h               0.9;
-//    }
-//}
+
+SolidRegionSubCycleControl
+{
+    maxDeltaTForSolidRegion 1.0E-4;
+}
+
 // ************************************************************************* //

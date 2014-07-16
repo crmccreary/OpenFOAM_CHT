@@ -24,6 +24,7 @@ FoamFile
 patchMap
 (
     outlet outlet
+    inlet  inlet
 );
 
 // List of target patches cutting the source domain (these need to be

@@ -16,31 +16,27 @@ FoamFile
 
 ddtSchemes
 {
-    default steadyState;
+    default CrankNicolson 0.5;
 }
 
 gradSchemes
 {
-    default         Gauss linear;
+    default         cellMDLimited Gauss linear 0.5;
+    grad(U)         cellMDLimited Gauss linear 0.5;
 }
 
 divSchemes
 {
-    default         none;
+    default         Gauss linearUpwind default;
 
-    div(phi,U)      bounded Gauss upwind;
-    div(phi,K)      bounded Gauss upwind;
-    div(phi,h)      bounded Gauss upwind;
-    div(phi,k)      bounded Gauss upwind;
-    div(phi,epsilon) bounded Gauss upwind;
-    div(phi,R)      Gauss linear;
-    div(R)          Gauss linear;
+    div(phi,U)      Gauss linearUpwind grad(U);
     div((muEff*dev2(T(grad(U))))) Gauss linear;
+    div((nuEff*dev2(T(grad(U))))) Gauss linear;
 }
 
 laplacianSchemes
 {
-    default        Gauss linear corrected;
+    default        Gauss linear limited 0.777;
 }
 
 interpolationSchemes
@@ -50,7 +46,7 @@ interpolationSchemes
 
 snGradSchemes
 {
-    default         corrected;
+    default         limited 0.777;
 }
 
 fluxRequired

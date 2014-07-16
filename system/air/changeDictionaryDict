@@ -18,6 +18,7 @@ dictionaryReplacement
 {
     U
     {
+        // internalField will be mapped from potential case
         //internalField   uniform (0 0.00037 0);
 
         boundaryField
@@ -37,8 +38,11 @@ dictionaryReplacement
                 // This means that two adjoining boundary faces on a boundary patch 
                 // might have fluxes with different signs and are hence handled differently.
                 //
-                type            zeroGradient;
+                //type            inletOutlet;
+                //inletValue      uniform ( 0 0 0 );
+                // value will be mapped from potential case
                 //value           uniform ( 0 0.00037 0 );
+                type zeroGradient;
             }
 
             inlet
@@ -48,15 +52,15 @@ dictionaryReplacement
                 // but if there is an inward flux, it is a zeroGradient and otherwise a 
                 // fixedValue boundary condition.
                 //
-                //type            outletInlet;
-                //outletValue     uniform ( 0 0 0 );
-                //value           uniform ( 0 0.001 0 );
+                type            outletInlet;
+                outletValue     uniform ( 0 0 0 );
+                //value           uniform ( 0 0.01 0 );
                 // Apply forced convection to get the solution
                 // started for 1000 increments
                 // then change over to outletInlet for
                 // natural convection
-                type            fixedValue;
-                value           uniform (0 0.01 0);
+                //type            fixedValue;
+                //value           uniform (0 0.01 0);
             }
         }
     }
@@ -88,7 +92,7 @@ dictionaryReplacement
             "air_to_.*"
             {
                 type            compressible::turbulentTemperatureCoupledBaffleMixed;
-                Tnbr            T;
+                neighbourFieldName T;
                 kappa           fluidThermo;
                 kappaName       none;
                 value           uniform 300;
