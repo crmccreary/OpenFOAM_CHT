@@ -10,7 +10,9 @@ cp constant/polyMesh/orig.faces constant/polyMesh/faces
 cp constant/polyMesh/orig.neighbour constant/polyMesh/neighbour
 cp constant/polyMesh/orig.owner constant/polyMesh/owner
 cp constant/polyMesh/orig.points constant/polyMesh/points
-rm -rf VTK
+rm -rf 0 > /dev/null 2>&1
+rm -f *.obj
+rm -f constant/cellToRegion constant/polyMesh/boundary
 rm -rf constant/cellToRegion constant/polyMesh/sets
 rm -rf 0/air
 rm -rf 0/rail
