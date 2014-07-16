@@ -10,8 +10,26 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
+    location    "system";
     object      fvSolution;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    p
+    {
+        solver          PCG;
+        preconditioner  DIC;
+        tolerance       1e-07;
+        relTol          0;
+    }
+}
+
+potentialFlow
+{
+    nNonOrthogonalCorrectors 10;
+}
+
 
 // ************************************************************************* //

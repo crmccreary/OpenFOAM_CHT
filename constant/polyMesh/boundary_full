@@ -12,7 +12,7 @@ FoamFile
 	object		boundary;
 }
 
-8
+6
 (
 	x_sym
 	{
@@ -20,12 +20,12 @@ FoamFile
 	nFaces		3241;
 	startFace	1191778;
 	}
-	appliedFlux
-	{
-	type		patch;
-	nFaces		522;
-	startFace	1195019;
-	}
+	//appliedFlux
+	//{
+	//type		patch;
+	//nFaces		522;
+	//startFace	1195019;
+	//}
 	z_sym_1
 	{
 	type		wall;
@@ -56,10 +56,10 @@ FoamFile
 	nFaces		2094;
 	startFace	1235502;
 	}
-	defaultPatches
-	{
-	type		patch;
-	nFaces		6770;
-	startFace	1237596;
-	}
+	//defaultPatches
+	//{
+	//type		patch;
+	//nFaces		6770;
+	//startFace	1237596;
+	//}
 )

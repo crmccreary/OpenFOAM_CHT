@@ -15,46 +15,29 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-libs
-(
-    "libOpenFOAM.so"
-    "libsimpleSwakFunctionObjects.so"
-    "libswakFunctionObjects.so"
-    "libgroovyBC.so"
-    "libcompressibleTurbulenceModel.so"
-    "libcompressibleRASModels.so"
-    "libswakTopoSources.so"
-    "libswakMeshQualityFunctionPlugin.so"
-    "libswakLocalCalculationsFunctionPlugin.so"
-    "libswakRandomFunctionPlugin.so"
-    "libswakFvcSchemesFunctionPlugin.so"
-    "libswakThermoTurbFunctionPlugin.so"
-    "libswakSurfacesAndSetsFunctionPlugin.so"
-);
+application     potentialFoam;
 
-application     chtMultiRegionSimpleFoam;
-
-startFrom       latestTime;
+startFrom       startTime;
 
 startTime       0;
 
 stopAt          endTime;
 
-endTime         1000;
+endTime         1;
 
 deltaT          1;
 
 writeControl    timeStep;
 
-writeInterval   1000;
+writeInterval   1;
 
 purgeWrite      0;
 
 writeFormat     ascii;
 
-writePrecision  8;
+writePrecision  6;
 
-writeCompression uncompressed;
+writeCompression off;
 
 timeFormat      general;
 
@@ -62,138 +45,5 @@ timePrecision   6;
 
 runTimeModifiable true;
 
-functions
-(
-    //listFields {
-    //    type listRegisteredObjects;
-    //    region rail;
-    //}
 
-    energyRegionAir{
-        type swakExpression;
-        region air;
-        expression "sum(h*vol())";
-        accumulations ( average );
-        valueType internalField;
-        verbose true;
-        factor 1.;
-        outputControlMode   timeStep;
-        outputInterval    1;
-    }
-
-    massFlow
-    {
-     type patchMassFlow;
-     functionObjectLibs
-       (
-         "libsimpleFunctionObjects.so"
-       );
-     verbose true;
-     patches
-       (
-         inlet
-         outlet
-       );
-     region air;
-     factor 1.;
-     outputControlMode   timeStep;
-     outputInterval    1;
-    }
-
-    deltaQ
-    {
-        type patchExpression;
-        verbose true;
-        accumulations (
-            sum
-        );
-        patches (
-            inlet
-            outlet
-        );
-        expression "phi*1006.7*(T - 300.0)";
-        region air;
-        factor 1.;
-        outputControlMode   timeStep;
-        outputInterval    1;
-    }
-
-    velocities
-    {
-        type patchExpression;
-        accumulations (
-            min
-            max
-            average
-        );
-        expression "U";
-        patches (
-            inlet
-            outlet
-        );
-        region air;
-        verbose true;
-        factor 1;
-        outputControlMode   timeStep;
-        outputInterval    1;
-    }
-
-    p_rgh
-    {
-        type patchExpression;
-        accumulations (
-            min
-            max
-            average
-        );
-        expression "p_rgh";
-        patches (
-            inlet
-            outlet
-        );
-        region air;
-        verbose true;
-        factor 1;
-        outputControlMode   timeStep;
-        outputInterval    1;
-    }
-
-    p
-    {
-        type patchExpression;
-        accumulations (
-            min
-            max
-            average
-        );
-        expression "p";
-        patches (
-            inlet
-            outlet
-        );
-        region air;
-        verbose true;
-        factor 1;
-        outputControlMode   timeStep;
-        outputInterval    1;
-    }
-
-    airT
-    {
-        type patchExpression;
-        accumulations (
-            min
-            max
-            average
-        );
-        expression "T";
-        patches ( inlet
-                  outlet);
-        region air;
-        verbose true;
-        factor 1;
-        outputControlMode   timeStep;
-        outputInterval    1;
-    }
-);
 // ************************************************************************* //
