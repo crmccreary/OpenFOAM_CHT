@@ -10,6 +10,7 @@ cp constant/polyMesh/orig.faces constant/polyMesh/faces
 cp constant/polyMesh/orig.neighbour constant/polyMesh/neighbour
 cp constant/polyMesh/orig.owner constant/polyMesh/owner
 cp constant/polyMesh/orig.points constant/polyMesh/points
+rm -f *.obj
 rm -f constant/cellToRegion constant/polyMesh/boundary
 rm -f constant/cellToRegion constant/polyMesh/boundary_subsetMesh
 rm -rf constant/cellToRegion constant/polyMesh/sets
