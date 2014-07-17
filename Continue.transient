@@ -13,7 +13,7 @@ cp system/rail/fvSchemes.transient system/rail/fvSchemes
 cp system/rail/fvSolution.transient system/rail/fvSolution
 
 # Run
-runParallel `getApplication` 8
+runParallel `getApplication` 32
 
 # Reconstruct
 runApplication reconstructPar -allRegions
