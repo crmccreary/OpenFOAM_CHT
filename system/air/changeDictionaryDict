@@ -175,8 +175,12 @@ dictionaryReplacement
 
             outlet
             {
-                type            fixedFluxPressure;
-                value           uniform 1.0e5;
+                //type            fixedFluxPressure;
+                //value           uniform 1.0e5;
+                //type            buoyantPressure;
+                //value           uniform 1.0e5;
+                type            inletOutlet;
+                inletValue      uniform 1.0e5;
             }
         }
     }

@@ -14,6 +14,12 @@ cp system/rail/fvSolution.steadyState system/rail/fvSolution
 
 cp -r 0.orig 0 > /dev/null 2>&1
 cp constant/polyMesh/boundary_full constant/polyMesh/boundary
+
+for i in system/decomposeParDict system/air/decomposeParDict system/rail/decomposeParDict
+do
+sed -i "s/numberOfSubdomains *[0-9]*/numberOfSubdomains $WM_NCOMPPROCS/" $i
+done
+
 runApplication topoSet
 runApplication splitMeshRegions -cellZones -overwrite
 # Convert tet mesh to polyhedral mesh
@@ -39,10 +45,12 @@ done
 # Decompose
 runApplication decomposePar -allRegions
 
-runParallel renumberMesh 32 -overwrite -region air
-runParallel renumberMesh 32 -overwrite -region rail
+runParallel renumberMesh $WM_NCOMPPROCS -overwrite -region air
+mv log.renumberMesh air.log.renumberMesh
+runParallel renumberMesh $WM_NCOMPPROCS -overwrite -region rail
+mv log.renumberMesh rail.log.renumberMesh
 # Run
-runParallel `getApplication` 32
+runParallel `getApplication` $WM_NCOMPPROCS
 
 # Reconstruct
 runApplication reconstructPar -allRegions
