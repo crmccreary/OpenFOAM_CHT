@@ -10,6 +10,14 @@ cp constant/polyMesh/orig.faces constant/polyMesh/faces
 cp constant/polyMesh/orig.neighbour constant/polyMesh/neighbour
 cp constant/polyMesh/orig.owner constant/polyMesh/owner
 cp constant/polyMesh/orig.points constant/polyMesh/points
+rm system/controlDict
+rm system/fvSchemes
+rm system/fvSolution
+rm system/air/fvSchemes
+rm system/air/fvSolution
+rm system/rail/fvSchemes
+rm system/rail/fvSolution
+
 rm -rf 0 > /dev/null 2>&1
 rm -f *.obj
 rm -f constant/cellToRegion constant/polyMesh/boundary
