@@ -4,6 +4,14 @@ cd ${0%/*} || exit 1    # run from this directory
 # Source tutorial run functions
 . $WM_PROJECT_DIR/bin/tools/RunFunctions
 
+cp system/controlDict.steadyState system/controlDict
+cp system/fvSchemes.steadyState system/fvSchemes
+cp system/fvSolution.steadyState system/fvSolution
+cp system/air/fvSchemes.steadyState system/air/fvSchemes
+cp system/air/fvSolution.steadyState system/air/fvSolution
+cp system/rail/fvSchemes.steadyState system/rail/fvSchemes
+cp system/rail/fvSolution.steadyState system/rail/fvSolution
+
 cp -r 0.orig 0 > /dev/null 2>&1
 cp constant/polyMesh/boundary_full constant/polyMesh/boundary
 runApplication topoSet
@@ -31,10 +39,10 @@ done
 # Decompose
 runApplication decomposePar -allRegions
 
-runParallel renumberMesh 8 -overwrite -region air
-runParallel renumberMesh 8 -overwrite -region rail
+runParallel renumberMesh 32 -overwrite -region air
+runParallel renumberMesh 32 -overwrite -region rail
 # Run
-runParallel `getApplication` 8
+runParallel `getApplication` 32
 
 # Reconstruct
 runApplication reconstructPar -allRegions
