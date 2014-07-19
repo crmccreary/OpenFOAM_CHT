@@ -102,7 +102,7 @@ dictionaryReplacement
 
     epsilon
     {
-        internalField   uniform 25;
+        internalField   uniform 25e-3;
 
         boundaryField
         {
@@ -112,20 +112,20 @@ dictionaryReplacement
                 Cmu             0.09;
                 kappa           0.41;
                 E               9.8;
-                value           uniform 25;
+                value           uniform 25e-3;
             }
 
             inlet
             {
                 type            inletOutlet;
-                inletValue      uniform 25;
-                value           uniform 25;
+                inletValue      uniform 25e-3;
+                value           uniform 25e-3;
             }
             outlet
             {
                 type            inletOutlet;
-                inletValue      uniform 25;
-                value           uniform 25;
+                inletValue      uniform 25e-3;
+                value           uniform 25e-3;
             }
 
         }
@@ -133,27 +133,27 @@ dictionaryReplacement
 
     k
     {
-        internalField   uniform 1;
+        internalField   uniform 1e-3;
 
         boundaryField
         {
             ".*"
             {
                 type            compressible::kqRWallFunction;
-                value           uniform 1;
+                value           uniform 1e-3;
             }
 
             inlet
             {
                 type            inletOutlet;
-                inletValue      uniform 1;
-                value           uniform 1;
+                inletValue      uniform 1e-3;
+                value           uniform 1e-3;
             }
             outlet
             {
                 type            inletOutlet;
-                inletValue      uniform 1;
-                value           uniform 1;
+                inletValue      uniform 1e-3;
+                value           uniform 1e-3;
             }
         }
     }
