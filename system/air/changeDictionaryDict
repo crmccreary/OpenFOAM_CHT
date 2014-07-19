@@ -102,27 +102,30 @@ dictionaryReplacement
 
     epsilon
     {
-        internalField   uniform 0.01;
+        internalField   uniform 25000;
 
         boundaryField
         {
             ".*"
             {
                 type            compressible::epsilonWallFunction;
-                value           uniform 0.01;
+                Cmu             0.09;
+                kappa           0.41;
+                E               9.8;
+                value           uniform 25000;
             }
 
             inlet
             {
                 type            inletOutlet;
-                inletValue      uniform 0.01;
-                value           uniform 0.01;
+                inletValue      uniform 25000;
+                value           uniform 25000;
             }
             outlet
             {
                 type            inletOutlet;
-                inletValue      uniform 0.01;
-                value           uniform 0.01;
+                inletValue      uniform 25000;
+                value           uniform 25000;
             }
 
         }
@@ -130,27 +133,55 @@ dictionaryReplacement
 
     k
     {
-        internalField   uniform 0.1;
+        internalField   uniform 1000;
 
         boundaryField
         {
             ".*"
             {
                 type            compressible::kqRWallFunction;
-                value           uniform 0.1;
+                value           uniform 1000;
             }
 
             inlet
             {
                 type            inletOutlet;
-                inletValue      uniform 0.1;
-                value           uniform 0.1;
+                inletValue      uniform 1000;
+                value           uniform 1000;
             }
             outlet
             {
                 type            inletOutlet;
-                inletValue      uniform 0.1;
-                value           uniform 0.1;
+                inletValue      uniform 1000;
+                value           uniform 1000;
+            }
+        }
+    }
+
+    mut
+    {
+        internalField   uniform 0;
+
+        boundaryField
+        {
+            ".*"
+            {
+                type            mutkWallFunction;
+                Cmu             0.09;
+                kappa           0.41;
+                E               9.8;
+                value           uniform 0;
+            }
+
+            inlet
+            {
+                type            calculated;
+                value           uniform 0;
+            }
+            outlet
+            {
+                type            calculated;
+                value           uniform 0;
             }
         }
     }

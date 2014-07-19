@@ -4,6 +4,14 @@ cd ${0%/*} || exit 1    # run from this directory
 # Source tutorial run functions
 . $WM_PROJECT_DIR/bin/tools/RunFunctions
 
+if [ -z ${WM_NCOMPPROCS+x} ];
+  then
+    echo "WM_NCOMPPROCS is unset";
+    exit 1;
+  else
+    echo "WM_NCOMPPROCS is set to '$WM_NCOMPPROCS'";
+fi
+
 cp system/controlDict.steadyState system/controlDict
 cp system/fvSchemes.steadyState system/fvSchemes
 cp system/fvSolution.steadyState system/fvSolution
@@ -11,13 +19,19 @@ cp system/air/fvSchemes.steadyState system/air/fvSchemes
 cp system/air/fvSolution.steadyState system/air/fvSolution
 cp system/rail/fvSchemes.steadyState system/rail/fvSchemes
 cp system/rail/fvSolution.steadyState system/rail/fvSolution
+cp constant/polyMesh/orig.cellZones constant/polyMesh/cellZones
+cp constant/polyMesh/orig.faces constant/polyMesh/faces
+cp constant/polyMesh/orig.neighbour constant/polyMesh/neighbour
+cp constant/polyMesh/orig.owner constant/polyMesh/owner
+cp constant/polyMesh/orig.points constant/polyMesh/points
+
 
 cp -r 0.orig 0 > /dev/null 2>&1
 cp constant/polyMesh/boundary_full constant/polyMesh/boundary
 
 for i in system/decomposeParDict system/air/decomposeParDict system/rail/decomposeParDict
 do
-sed -i "s/numberOfSubdomains *[0-9]*/numberOfSubdomains $WM_NCOMPPROCS/" $i
+sed -i "s/numberOfSubdomains .*/numberOfSubdomains $WM_NCOMPPROCS;/" $i
 done
 
 runApplication topoSet

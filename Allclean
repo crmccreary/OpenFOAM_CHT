@@ -5,11 +5,15 @@ cd ${0%/*} || exit 1    # run from this directory
 . $WM_PROJECT_DIR/bin/tools/CleanFunctions
 
 cleanCase
-cp constant/polyMesh/orig.cellZones constant/polyMesh/cellZones
-cp constant/polyMesh/orig.faces constant/polyMesh/faces
-cp constant/polyMesh/orig.neighbour constant/polyMesh/neighbour
-cp constant/polyMesh/orig.owner constant/polyMesh/owner
-cp constant/polyMesh/orig.points constant/polyMesh/points
+
+rm -f air.log.renumberMesh
+rm -f rail.log.renumberMesh
+rm -f constant/polyMesh/cellZones
+rm -f constant/polyMesh/faces
+rm -f constant/polyMesh/neighbour
+rm -f constant/polyMesh/owner
+rm -f constant/polyMesh/points
+
 rm -f system/controlDict
 rm -f system/fvSchemes
 rm -f system/fvSolution
