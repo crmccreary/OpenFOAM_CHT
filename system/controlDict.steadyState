@@ -40,13 +40,13 @@ startFrom       latestTime;
 
 stopAt          endTime;
 
-endTime         3000;
+endTime         10000;
 
 deltaT          1;
 
 writeControl    timeStep;
 
-writeInterval   3000;
+writeInterval   500;
 
 purgeWrite      0;
 
@@ -111,7 +111,7 @@ functions
             inlet
             outlet
         );
-        expression "phi*1006.7*(T - 300.0)";
+        expression "rho*phi*1006.7*(T - 300.0)";
         region air;
         factor 1.;
         outputControlMode   timeStep;

@@ -28,6 +28,18 @@ dictionaryReplacement
                 type            fixedValue;
                 value           uniform (0 0 0);
             }
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+            z_sym_2
+            {
+                type            symmetryPlane;
+            }
             outlet
             {
                 //
@@ -76,6 +88,18 @@ dictionaryReplacement
                 type            zeroGradient;
             }
 
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+            z_sym_2
+            {
+                type            symmetryPlane;
+            }
             inlet
             {
                 type            inletOutlet;
@@ -102,7 +126,7 @@ dictionaryReplacement
 
     epsilon
     {
-        internalField   uniform 0.01;
+        internalField   uniform 200;
 
         boundaryField
         {
@@ -112,16 +136,27 @@ dictionaryReplacement
                 value           uniform 0.01;
             }
 
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+            z_sym_2
+            {
+                type            symmetryPlane;
+            }
             inlet
             {
                 type            inletOutlet;
-                inletValue      uniform 0.01;
-                value           uniform 0.01;
+                inletValue      $internalField;
             }
             outlet
             {
                 type            inletOutlet;
-                inletValue      uniform 0.01;
+                inletValue      $internalField;
                 value           uniform 0.01;
             }
 
@@ -130,27 +165,109 @@ dictionaryReplacement
 
     k
     {
-        internalField   uniform 0.1;
+        internalField   uniform 0.2;
 
         boundaryField
         {
             ".*"
             {
                 type            compressible::kqRWallFunction;
-                value           uniform 0.1;
+                value           uniform 0;
             }
 
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+            z_sym_2
+            {
+                type            symmetryPlane;
+            }
             inlet
             {
-                type            inletOutlet;
-                inletValue      uniform 0.1;
-                value           uniform 0.1;
+                type            compressible::turbulentIntensityKineticEnergyInlet;
+                intensity       0.05;       // 5% turbulent intensity
+                value           $internalField;
             }
             outlet
             {
                 type            inletOutlet;
-                inletValue      uniform 0.1;
-                value           uniform 0.1;
+                inletValue      $internalField;
+            }
+        }
+    }
+
+    nut
+    {
+        internalField   uniform 0;
+
+        boundaryField
+        {
+            ".*"
+            {
+                type            compressible::nutkWallFunction;
+                value           uniform 0;
+            }
+
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+            z_sym_2
+            {
+                type            symmetryPlane;
+            }
+            inlet
+            {
+                type            calculated;
+                value           0;
+            }
+            outlet
+            {
+                type            calculated;
+                inletValue      0;
+            }
+        }
+    }
+
+    nuTilda
+    {
+        internalField   uniform 0;
+
+        boundaryField
+        {
+            ".*"
+            {
+                type            zeroGradient;
+            }
+
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+            z_sym_2
+            {
+                type            symmetryPlane;
+            }
+            inlet
+            {
+                type            zeroGradient;
+            }
+            outlet
+            {
+                type            zeroGradient;
             }
         }
     }
@@ -167,6 +284,18 @@ dictionaryReplacement
                 value           uniform 1e5;
             }
 
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+            z_sym_2
+            {
+                type            symmetryPlane;
+            }
             inlet
             {
                 type            fixedValue;
@@ -197,6 +326,18 @@ dictionaryReplacement
                 value           uniform 1e5;
             }
 
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+            z_sym_2
+            {
+                type            symmetryPlane;
+            }
             inlet
             {
                 type            inletOutlet;

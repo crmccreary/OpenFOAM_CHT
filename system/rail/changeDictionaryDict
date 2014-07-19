@@ -39,7 +39,7 @@ dictionaryReplacement
             appliedFlux
             {
                 type            fixedGradient;
-                gradient        uniform 17.19;
+                gradient        uniform 60.99;
             }
 
             defaultPatches

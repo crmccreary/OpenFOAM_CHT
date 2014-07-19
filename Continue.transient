@@ -16,6 +16,7 @@ cp system/rail/fvSolution.transient system/rail/fvSolution
 runParallel `getApplication` 32
 
 # Reconstruct
+if ls log.reconstructPar &> /dev/null; then mv log.reconstructPar log.reconstructPar.old fi
 runApplication reconstructPar -allRegions
 
 echo

@@ -16,15 +16,28 @@ FoamFile
 
 dimensions      [0 2 -2 0 0 0 0];
 
-internalField   uniform 0.1;
+internalField   uniform 0.2;
 
 boundaryField
 {
     ".*"
     {
         type            calculated;
-        value           uniform 0.1;
+        value           uniform 0.2;
     }
+    x_sym
+    {
+        type            symmetryPlane;
+    }
+    z_sym_1
+    {
+        type            symmetryPlane;
+    }
+    z_sym_2
+    {
+        type            symmetryPlane;
+    }
+
 }
 
 

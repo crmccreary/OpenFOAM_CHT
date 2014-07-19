@@ -16,7 +16,7 @@ FoamFile
 (
 	x_sym
 	{
-	type		wall;
+	type		symmetryPlane;
 	nFaces		3241;
 	startFace	1191778;
 	}
@@ -28,13 +28,13 @@ FoamFile
 	}
 	z_sym_1
 	{
-	type		wall;
+	type		symmetryPlane;
 	nFaces		11879;
 	startFace	1195541;
 	}
 	z_sym_2
 	{
-	type		wall;
+	type		symmetryPlane;
 	nFaces		12675;
 	startFace	1207420;
 	}
