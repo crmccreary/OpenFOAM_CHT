@@ -38,11 +38,11 @@ dictionaryReplacement
                 // This means that two adjoining boundary faces on a boundary patch 
                 // might have fluxes with different signs and are hence handled differently.
                 //
-                //type            inletOutlet;
-                //inletValue      uniform ( 0 0 0 );
+                type            inletOutlet;
+                inletValue      uniform ( 0 0 0 );
                 // value will be mapped from potential case
                 //value           uniform ( 0 0.00037 0 );
-                type zeroGradient;
+                //type zeroGradient;
             }
 
             inlet
