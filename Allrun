@@ -22,10 +22,10 @@ runApplication polyDualMesh -overwrite 45
 runApplication decomposePar 
 
 # Renumber to reduce bandwidth
-runParallel renumberMesh 8 -overwrite
+runParallel renumberMesh 32 -overwrite
 
 # Run
-runParallel `getApplication` 8
+runParallel `getApplication` 32
 
 # Reconstruct
 runApplication reconstructPar -zeroTime

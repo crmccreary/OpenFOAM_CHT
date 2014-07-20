@@ -16,25 +16,19 @@ FoamFile
 (
 	x_sym
 	{
-	type		wall;
+	type		symmetryPlane;
 	nFaces		3241;
 	startFace	1191778;
 	}
-	//appliedFlux
-	//{
-	//type		patch;
-	//nFaces		522;
-	//startFace	1195019;
-	//}
 	z_sym_1
 	{
-	type		wall;
+	type		symmetryPlane;
 	nFaces		11879;
 	startFace	1195541;
 	}
 	z_sym_2
 	{
-	type		wall;
+	type		symmetryPlane;
 	nFaces		12675;
 	startFace	1207420;
 	}
@@ -56,10 +50,4 @@ FoamFile
 	nFaces		2094;
 	startFace	1235502;
 	}
-	//defaultPatches
-	//{
-	//type		patch;
-	//nFaces		6770;
-	//startFace	1237596;
-	//}
 )
