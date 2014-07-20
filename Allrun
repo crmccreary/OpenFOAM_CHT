@@ -12,7 +12,7 @@ if [ -z ${WM_NCOMPPROCS+x} ];
     echo "WM_NCOMPPROCS is set to '$WM_NCOMPPROCS'";
 fi
 
-cp system/controlDict.steadyState system/controlDict
+cp system/controlDict.steadyState_laminar system/controlDict
 cp system/fvSchemes.steadyState system/fvSchemes
 cp system/fvSolution.steadyState system/fvSolution
 cp system/air/fvSchemes.steadyState system/air/fvSchemes
