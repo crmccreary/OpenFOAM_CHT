@@ -31,6 +31,11 @@ boundaryField
                 type            zeroGradient;
             }
 
+            inlet_side
+            {
+                type            zeroGradient;
+            }
+
             outlet
             {
                 type            fixedValue;

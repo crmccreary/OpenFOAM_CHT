@@ -8,30 +8,30 @@ cp -r 0.orig 0 > /dev/null 2>&1
 cp constant/polyMesh/boundary_full constant/polyMesh/boundary
 runApplication topoSet
 runApplication subsetMesh air -patch wall -overwrite
-cp constant/polyMesh/boundary constant/polyMesh/boundary_subsetMesh
-cp constant/polyMesh/boundary_air_only constant/polyMesh/boundary
-
+#cp constant/polyMesh/boundary constant/polyMesh/boundary_subsetMesh
+#cp constant/polyMesh/boundary_air_only constant/polyMesh/boundary
+#
 # Convert tet mesh to polyhedral mesh
 runApplication polyDualMesh -overwrite 45
-
+#
 #-- Run on single processor
 #runApplication renumberMesh -overwrite
 #runApplication `getApplication`
-
+#
 # Decompose
 runApplication decomposePar 
-
+#
 # Renumber to reduce bandwidth
 runParallel renumberMesh 32 -overwrite
-
+#
 # Run
 runParallel `getApplication` 32
-
+#
 # Reconstruct
 runApplication reconstructPar -zeroTime
 echo
 echo "creating files for paraview post-processing"
 echo
 paraFoam -touchAll
-
-# ----------------------------------------------------------------- end-of-file
+#
+## ----------------------------------------------------------------- end-of-file

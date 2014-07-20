@@ -38,6 +38,11 @@ boundaryField
         type            fixedValue;
         value           uniform (0 0.01 0);
     }
+    inlet_side
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
     wall
     {
         type            fixedValue;
