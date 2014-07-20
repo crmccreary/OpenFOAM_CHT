@@ -25,6 +25,7 @@ patchMap
 (
     outlet outlet
     inlet  inlet
+    inlet_side  inlet_side
 );
 
 // List of target patches cutting the source domain (these need to be

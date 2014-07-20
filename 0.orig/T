@@ -25,6 +25,21 @@ boundaryField
         type            calculated;
         value           uniform 300;
     }
+    x_sym
+    {
+        type            symmetryPlane;
+    }
+ 
+    z_sym_1
+    {
+        type            symmetryPlane;
+    }
+ 
+    z_sym_2
+    {
+        type            symmetryPlane;
+    }
+
 }
 
 // ************************************************************************* //

@@ -12,54 +12,60 @@ FoamFile
 	object		boundary;
 }
 
-8
+9
 (
-	x_sym
-	{
-	type		wall;
-	nFaces		3241;
-	startFace	1191778;
-	}
-	appliedFlux
-	{
-	type		patch;
-	nFaces		522;
-	startFace	1195019;
-	}
-	z_sym_1
-	{
-	type		wall;
-	nFaces		11879;
-	startFace	1195541;
-	}
-	z_sym_2
-	{
-	type		wall;
-	nFaces		12675;
-	startFace	1207420;
-	}
-	inlet
-	{
-	type		patch;
-	nFaces		188;
-	startFace	1220095;
-	}
-	wall
-	{
-	type		wall;
-	nFaces		15219;
-	startFace	1220283;
-	}
 	outlet
 	{
 	type		patch;
 	nFaces		2094;
-	startFace	1235502;
+	startFace	1191778;
+	}
+	x_sym
+	{
+	type		symmetryPlane;
+	nFaces		3241;
+	startFace	1193872;
+	}
+	inlet
+	{
+	type		patch;
+	nFaces		1354;
+	startFace	1197113;
 	}
 	defaultPatches
 	{
 	type		patch;
 	nFaces		6770;
-	startFace	1237596;
+	startFace	1198467;
+	}
+	appliedFlux
+	{
+	type		patch;
+	nFaces		522;
+	startFace	1205237;
+	}
+	z_sym_1
+	{
+	type		symmetryPlane;
+	nFaces		11879;
+	startFace	1205759;
+	}
+	z_sym_2
+	{
+	type		symmetryPlane;
+	nFaces		12675;
+	startFace	1217638;
+	}
+	wall
+	{
+	type		wall;
+	nFaces		3589;
+	startFace	1230313;
+	}
+	inlet_side
+	{
+	type		patch;
+	nFaces		10464;
+	startFace	1233902;
 	}
 )

@@ -9,7 +9,7 @@ cp system/controlDict.steadyState_turbulent system/controlDict
 
 for i in k epsilon mut
     do
-        cp 0/air/$i 10000/air/$i
+        cp 0/air/$i 5000/air/$i
     done
 
 sed -i "s/simulationType .*/simulationType  RASModel;/" constant/air/turbulenceProperties

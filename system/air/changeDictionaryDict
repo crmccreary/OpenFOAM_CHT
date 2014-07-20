@@ -54,14 +54,34 @@ dictionaryReplacement
                 //
                 type            outletInlet;
                 outletValue     uniform ( 0 0 0 );
-                //value           uniform ( 0 0.01 0 );
-                // Apply forced convection to get the solution
-                // started for 1000 increments
-                // then change over to outletInlet for
-                // natural convection
-                //type            fixedValue;
-                //value           uniform (0 0.01 0);
             }
+
+            inlet_side
+            {
+                //
+                // The outletInlet boundary condition does this decision in the same manner, 
+                // but if there is an inward flux, it is a zeroGradient and otherwise a 
+                // fixedValue boundary condition.
+                //
+                type            outletInlet;
+                outletValue     uniform ( 0 0 0 );
+            }
+
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+         
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+         
+            z_sym_2
+            {
+                type            symmetryPlane;
+            }
+
         }
     }
 
@@ -82,6 +102,14 @@ dictionaryReplacement
                 inletValue      uniform 300;
                 value           uniform 300;
             }
+
+            inlet_side
+            {
+                type            inletOutlet;
+                inletValue      uniform 300;
+                value           uniform 300;
+            }
+
             outlet
             {
                 type            inletOutlet;
@@ -97,6 +125,22 @@ dictionaryReplacement
                 kappaName       none;
                 value           uniform 300;
             }
+
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+
+            z_sym_2
+            {
+                type            symmetryPlane;
+            }
+
         }
     }
 
@@ -121,11 +165,34 @@ dictionaryReplacement
                 inletValue      uniform 25e-3;
                 value           uniform 25e-3;
             }
+
+            inlet_side
+            {
+                type            inletOutlet;
+                inletValue      uniform 25e-3;
+                value           uniform 25e-3;
+            }
+
             outlet
             {
                 type            inletOutlet;
                 inletValue      uniform 25e-3;
                 value           uniform 25e-3;
+            }
+
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+
+            z_sym_2
+            {
+                type            symmetryPlane;
             }
 
         }
@@ -149,12 +216,36 @@ dictionaryReplacement
                 inletValue      uniform 1e-3;
                 value           uniform 1e-3;
             }
+
+            inlet_side
+            {
+                type            inletOutlet;
+                inletValue      uniform 1e-3;
+                value           uniform 1e-3;
+            }
+
             outlet
             {
                 type            inletOutlet;
                 inletValue      uniform 1e-3;
                 value           uniform 1e-3;
             }
+
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+
+            z_sym_2
+            {
+                type            symmetryPlane;
+            }
+
         }
     }
 
@@ -178,11 +269,34 @@ dictionaryReplacement
                 type            calculated;
                 value           uniform 0;
             }
+
+            inlet_side
+            {
+                type            calculated;
+                value           uniform 0;
+            }
+
             outlet
             {
                 type            calculated;
                 value           uniform 0;
             }
+
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+
+            z_sym_2
+            {
+                type            symmetryPlane;
+            }
+
         }
     }
 
@@ -204,11 +318,34 @@ dictionaryReplacement
                 type            calculated;
                 value           uniform 0;
             }
+
+            inlet_side
+            {
+                type            calculated;
+                value           uniform 0;
+            }
+
             outlet
             {
                 type            calculated;
                 value           uniform 0;
             }
+
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+
+            z_sym_2
+            {
+                type            symmetryPlane;
+            }
+
         }
     }
 
@@ -230,6 +367,12 @@ dictionaryReplacement
                 value           uniform 1.0e5;
             }
 
+            inlet_side
+            {
+                type            fixedValue;
+                value           uniform 1.0e5;
+            }
+
             outlet
             {
                 //type            fixedFluxPressure;
@@ -239,6 +382,22 @@ dictionaryReplacement
                 type            inletOutlet;
                 inletValue      uniform 1.0e5;
             }
+
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+
+            z_sym_2
+            {
+                type            symmetryPlane;
+            }
+
         }
     }
 
@@ -261,11 +420,34 @@ dictionaryReplacement
                 value           uniform 1.0e5;
             }
 
+            inlet_side
+            {
+                type            inletOutlet;
+                inletValue      uniform 1.0e5;
+                value           uniform 1.0e5;
+            }
+
             outlet
             {
                 type            calculated;
                 value           uniform 1e5;
             }
+
+            x_sym
+            {
+                type            symmetryPlane;
+            }
+
+            z_sym_1
+            {
+                type            symmetryPlane;
+            }
+
+            z_sym_2
+            {
+                type            symmetryPlane;
+            }
+
         }
     }
 }
