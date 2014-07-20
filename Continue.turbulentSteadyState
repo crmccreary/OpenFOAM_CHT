@@ -1,0 +1,37 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+mv log.chtMultiRegionSimpleFoam log.chtMultiRegionSimpleFoam.laminar
+cp system/controlDict.steadyState_turbulent system/controlDict
+
+for i in k epsilon mut
+    do
+        cp 0/air/$i 10000/air/$i
+    done
+
+sed -i "s/simulationType  laminar/simulationType  RASModel/" constant/air/turbulenceProperties
+# Decompose
+mv log.decomposePar log.decomposePar.laminar
+runApplication decomposePar -allRegions -force
+
+runParallel renumberMesh $WM_NCOMPPROCS -overwrite -region air
+mv log.renumberMesh air.log.renumberMesh.turbulent
+runParallel renumberMesh $WM_NCOMPPROCS -overwrite -region rail
+mv log.renumberMesh rail.log.renumberMesh.turbulent
+
+# Run
+runParallel `getApplication` $WM_NCOMPPROCS
+
+# Reconstruct
+rm log.reconstructPar
+runApplication reconstructPar -allRegions
+
+echo
+echo "creating files for paraview post-processing"
+echo
+paraFoam -touchAll
+
+# ----------------------------------------------------------------- end-of-file
