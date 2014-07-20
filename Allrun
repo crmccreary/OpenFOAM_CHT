@@ -12,6 +12,8 @@ if [ -z ${WM_NCOMPPROCS+x} ];
     echo "WM_NCOMPPROCS is set to '$WM_NCOMPPROCS'";
 fi
 
+sed -i "s/simulationType .*/simulationType  laminar;/" constant/air/turbulenceProperties
+
 cp system/controlDict.steadyState_laminar system/controlDict
 cp system/fvSchemes.steadyState system/fvSchemes
 cp system/fvSolution.steadyState system/fvSolution

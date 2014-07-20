@@ -12,7 +12,7 @@ for i in k epsilon mut
         cp 0/air/$i 10000/air/$i
     done
 
-sed -i "s/simulationType  laminar/simulationType  RASModel/" constant/air/turbulenceProperties
+sed -i "s/simulationType .*/simulationType  RASModel;/" constant/air/turbulenceProperties
 # Decompose
 mv log.decomposePar log.decomposePar.laminar
 runApplication decomposePar -allRegions -force
